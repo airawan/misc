@@ -1,4 +1,4 @@
-###Mostly TomeNET related scripts (www.tomenet.net)
+##Mostly TomeNET related scripts (www.tomenet.net)
 
 
 **highscore_collector.c**	Tool to collate multiple high score files together to get a global/timeless highscore
