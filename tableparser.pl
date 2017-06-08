@@ -1974,7 +1974,7 @@ function get_class_advert(pclass)
 			'Forget training in any weapon but swords.<br/>'+
 			'Get hit with a big penalty for using blessed weapons.<br/>'+
 			'Sense curses on items and watch that ability grow with each level.<br/>'+
-			'Bonus on Conveyance. Show your maturity as a player by playing a challenging class.<br/>'+
+			'Show your maturity as a player by playing a challenging class.<br/>'+
 			'Support your team with debuffs in the early game, and beyond!<\p>';
 		}
 
