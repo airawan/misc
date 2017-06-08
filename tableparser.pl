@@ -1966,7 +1966,7 @@ function get_class_advert(pclass)
 		}
 	if (pclass=='CLASS_CPRIEST') {
 		s+='<h4>Priest</h4><p> '+
-			'Use dark magics and wicked heresies, plus some Divination and Conveyance.<br/>'+
+			'Use dark magics and wicked heresies.<br/>'+
 			'Make proper use of swords or martial arts.<br/>'+
 			'Learn many spells. Be wise and get mana and spell<br/>'+
 			'success. Show off with magical devices. Saving throws that get you out of trouble.<br/>'+ 
