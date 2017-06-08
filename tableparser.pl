@@ -38,6 +38,9 @@ my %classes_TOKEN = (
 "Shaman"=>"CLASS_SHAMAN",
 "Runemaster"=>"CLASS_RUNEMASTER",
 "Mindcrafter"=>"CLASS_MINDCRAFTER",
+"Death Knight"=>"CLASS_DEATHKNIGHT",
+"Hell Knight"=>"CLASS_HELLKNIGHT",
+#"Corrupted Priest"=>"CLASS_CPRIEST", #Thanks, Blue!
 );
  
 
@@ -50,116 +53,120 @@ var SKILLS = [];
 var FRIENDLY = [];
 var SPELL = [];
 var MAX_RACE = 17; 
-var MAX_CLASS = 14;
+var MAX_CLASS = 16;
 
 SKILLS['SKILL_COMBAT']= 1;
- SKILLS['SKILL_MASTERY']= 2;
- SKILLS['SKILL_SWORD']= 3;
- SKILLS['SKILL_CRITS']= 4;
- SKILLS['SKILL_POLEARM']= 5;
+SKILLS['SKILL_MASTERY']= 2;
+SKILLS['SKILL_SWORD']= 3;
+SKILLS['SKILL_CRITS']= 4;
+SKILLS['SKILL_POLEARM']= 5;
 
 SKILLS['SKILL_BLUNT']= 6;
- SKILLS['SKILL_ARCHERY']= 7;
- SKILLS['SKILL_SLING']= 8;
- SKILLS['SKILL_BOW']= 9;
- SKILLS['SKILL_XBOW']= 10;
+SKILLS['SKILL_ARCHERY']= 7;
+SKILLS['SKILL_SLING']= 8;
+SKILLS['SKILL_BOW']= 9;
+SKILLS['SKILL_XBOW']= 10;
 
 SKILLS['SKILL_BACKSTAB']= 11;
- SKILLS['SKILL_MAGIC']= 12;
- SKILLS['SKILL_SHOOT_TILL_KILL']= 13;
- SKILLS['SKILL_SORCERY']= 14;
- SKILLS['SKILL_MAGERY']= 15;
+SKILLS['SKILL_MAGIC']= 12;
+SKILLS['SKILL_SHOOT_TILL_KILL']= 13;
+SKILLS['SKILL_SORCERY']= 14;
+SKILLS['SKILL_MAGERY']= 15;
 
 SKILLS['SKILL_MIMIC']= 16;
- SKILLS['SKILL_DEVICE']= 17;
- SKILLS['SKILL_SHADOW']= 18;
- SKILLS['SKILL_PRAY']= 19;
- SKILLS['SKILL_SPELLLENGTH']= 20;
+SKILLS['SKILL_DEVICE']= 17;
+SKILLS['SKILL_SHADOW']= 18;
+SKILLS['SKILL_PRAY']= 19;
+SKILLS['SKILL_SPELLLENGTH']= 20;
 
 SKILLS['SKILL_SNEAKINESS']= 21;
 
 //SKILLS['SKILL_DISARM']= 22;
 
 SKILLS['SKILL_STEALTH']= 23;
- SKILLS['SKILL_STEALING']= 24;
- SKILLS['SKILL_NECROMANCY']= 25;
+SKILLS['SKILL_STEALING']= 24;
+SKILLS['SKILL_NECROMANCY']= 25;
 
 SKILLS['SKILL_ANTIMAGIC']= 26;
- SKILLS['SKILL_AURA_POWER']= 27;
- SKILLS['SKILL_TRAUMATURGY']= 27;
+SKILLS['SKILL_AURA_POWER']= 27;
+SKILLS['SKILL_TRAUMATURGY']= 27;
 
 SKILLS['SKILL_AURA_FEAR']= 28;
- SKILLS['SKILL_AURA_SHIVER']= 29;
- SKILLS['SKILL_AURA_DEATH']= 30;
- SKILLS['SKILL_HUNTING']= 31;
- SKILLS['SKILL_TECHNIQUE']= 32;
+SKILLS['SKILL_AURA_SHIVER']= 29;
+SKILLS['SKILL_AURA_DEATH']= 30;
+SKILLS['SKILL_HUNTING']= 31;
+SKILLS['SKILL_TECHNIQUE']= 32;
 
 SKILLS['SKILL_MISC']= 33;
- SKILLS['SKILL_AGILITY']= 34;
- SKILLS['SKILL_CALMNESS']= 35;
- SKILLS['SKILL_SWIM']= 36;
- SKILLS['SKILL_MARTIAL_ARTS']= 37;
+SKILLS['SKILL_AGILITY']= 34;
+SKILLS['SKILL_CALMNESS']= 35;
+SKILLS['SKILL_SWIM']= 36;
+SKILLS['SKILL_MARTIAL_ARTS']= 37;
 
 SKILLS['SKILL_RICOCHET']= 38;
- SKILLS['SKILL_BOOMERANG']= 39;
- SKILLS['SKILL_TRAINING']= 40;
- SKILLS['SKILL_INTERCEPT']= 41;
- SKILLS['SKILL_DODGE']= 42;
+SKILLS['SKILL_BOOMERANG']= 39;
+SKILLS['SKILL_TRAINING']= 40;
+SKILLS['SKILL_INTERCEPT']= 41;
+SKILLS['SKILL_DODGE']= 42;
 
 SKILLS['SKILL_HEALTH']= 43;
- SKILLS['SKILL_DIG']= 44;
- SKILLS['SKILL_SPELLRAD']= 45;
- SKILLS['SKILL_TRAPPING']= 46;
- SKILLS['SKILL_AXE']= 47;
+SKILLS['SKILL_DIG']= 44;
+SKILLS['SKILL_SPELLRAD']= 45;
+SKILLS['SKILL_TRAPPING']= 46;
+SKILLS['SKILL_AXE']= 47;
 
 SKILLS['SKILL_CONVEYANCE']= 48;
- SKILLS['SKILL_SPELL']= 49;
- SKILLS['SKILL_MANA']= 50;
- SKILLS['SKILL_FIRE']= 51;
- SKILLS['SKILL_AIR']= 52;
+SKILLS['SKILL_SPELL']= 49;
+SKILLS['SKILL_MANA']= 50;
+SKILLS['SKILL_FIRE']= 51;
+SKILLS['SKILL_AIR']= 52;
 
 SKILLS['SKILL_WATER']= 53;
- SKILLS['SKILL_NATURE']= 54;
- SKILLS['SKILL_EARTH']= 55;
- SKILLS['SKILL_DIVINATION']= 56;
- SKILLS['SKILL_TEMPORAL']= 57;
+SKILLS['SKILL_NATURE']= 54;
+SKILLS['SKILL_EARTH']= 55;
+SKILLS['SKILL_DIVINATION']= 56;
+SKILLS['SKILL_TEMPORAL']= 57;
 
 SKILLS['SKILL_META']= 58;
- SKILLS['SKILL_MIND']= 59;
- SKILLS['SKILL_UDUN']= 60;
- SKILLS['SKILL_HOFFENSE']= 70;
- SKILLS['SKILL_HDEFENSE']= 71;
+SKILLS['SKILL_MIND']= 59;
+SKILLS['SKILL_UDUN']= 60;
+SKILLS['SKILL_HOFFENSE']= 70;
+SKILLS['SKILL_HDEFENSE']= 71;
 
 SKILLS['SKILL_HCURING']= 72;
- SKILLS['SKILL_HSUPPORT']= 73;
- SKILLS['SKILL_DRUID_ARCANE']= 74;
- SKILLS['SKILL_DRUID_PHYSICAL']= 75;
- SKILLS['SKILL_RUNEMASTERY']= 76;
+SKILLS['SKILL_HSUPPORT']= 73;
+SKILLS['SKILL_DRUID_ARCANE']= 74;
+SKILLS['SKILL_DRUID_PHYSICAL']= 75;
+SKILLS['SKILL_RUNEMASTERY']= 76;
 
 SKILLS['SKILL_ASTRAL']= 77;
- SKILLS['SKILL_DUAL']= 78;
- SKILLS['SKILL_STANCE']= 79;
- SKILLS['SKILL_PPOWER']= 80;
- SKILLS['SKILL_TCONTACT']= 81;
+SKILLS['SKILL_DUAL']= 78;
+SKILLS['SKILL_STANCE']= 79;
+SKILLS['SKILL_PPOWER']= 80;
+SKILLS['SKILL_TCONTACT']= 81;
 
 SKILLS['SKILL_MINTRUSION']= 82;
- SKILLS['SKILL_SCHOOL_MAGIC']= 83;
- SKILLS['SKILL_SCHOOL_PRAYING']= 84;
- SKILLS['SKILL_SCHOOL_DRUIDISM']= 85;
- SKILLS['SKILL_SCHOOL_MINDCRAFT']= 86;
+SKILLS['SKILL_SCHOOL_MAGIC']= 83;
+SKILLS['SKILL_SCHOOL_PRAYING']= 84;
+SKILLS['SKILL_SCHOOL_DRUIDISM']= 85;
+SKILLS['SKILL_SCHOOL_MINDCRAFT']= 86;
+
+SKILLS['SKILL_OSHADOW'] = 87;
+SKILLS['SKILL_OSPIRIT'] = 88;
+SKILLS['SKILL_SCHOOL_OCCULT'] = 89;
 
 SKILLS['SKILL_CLIMB']= 90;
- SKILLS['SKILL_FLY']= 91;
- SKILLS['SKILL_FREEACT']= 92;
- SKILLS['SKILL_RESCONF']= 93;
+SKILLS['SKILL_FLY']= 91;
+SKILLS['SKILL_FREEACT']= 92;
+SKILLS['SKILL_RESCONF']= 93;
 
 //SKILLS['SKILL_SCHOOL_RUNECRAFT']= 95; 
- SKILLS['SKILL_R_LITE']= 96; 
- SKILLS['SKILL_R_DARK']= 97; 
- SKILLS['SKILL_R_NEXU']= 98; 
- SKILLS['SKILL_R_NETH']= 99; 
- SKILLS['SKILL_R_CHAO']= 100;
- SKILLS['SKILL_R_MANA']= 101;
+SKILLS['SKILL_R_LITE']= 96; 
+SKILLS['SKILL_R_DARK']= 97; 
+SKILLS['SKILL_R_NEXU']= 98; 
+SKILLS['SKILL_R_NETH']= 99; 
+SKILLS['SKILL_R_CHAO']= 100;
+SKILLS['SKILL_R_MANA']= 101;
 
 FRIENDLY['SKILL_CRITS'] = [ 'SKILL_SWORD', 5 ];
 FRIENDLY['SKILL_SWORD'] = [ 'SKILL_MASTERY', 15, 'SKILL_COMBAT', 20 ];
@@ -173,7 +180,7 @@ FRIENDLY['SKILL_XBOW'] = [ 'SKILL_ARCHERY', 15, 'SKILL_COMBAT', 15 ];
 
 FRIENDLY['SKILL_MASTERY'] = [ 'SKILL_COMBAT', 20 ];
 
-FRIENDLY['SKILL_ARCHERY'] = [ 'SKILL_COMBAT', 20 ];
+FRIENDLY['SKILL_ARCHERY'] = [ 'SKILL_COMBAT', 15 ];
 FRIENDLY['SKILL_BOOMERANG'] = [ 'SKILL_COMBAT', 15 ];
 
 FRIENDLY['SKILL_MARTIAL_ARTS'] = [ 'SKILL_COMBAT', 20, 'SKILL_DODGE', 20 ];
@@ -209,6 +216,10 @@ FRIENDLY['SKILL_PPOWER'] = [ 'SKILL_MAGIC', 10 ];
 FRIENDLY['SKILL_TCONTACT'] = [ 'SKILL_MAGIC', 10 ];
 FRIENDLY['SKILL_MINTRUSION'] = [ 'SKILL_MAGIC', 10 ];
 
+FRIENDLY['SKILL_OSHADOW'] = [ 'SKILL_MAGIC', 10 ];
+FRIENDLY['SKILL_OSPIRIT'] = [ 'SKILL_MAGIC', 10 ];
+FRIENDLY['SKILL_OHERETICISM'] = [ 'SKILL_MAGIC', 10 ];
+
 FRIENDLY['SKILL_RUNEMASTERY'] = [ 'SKILL_MAGIC', 20 ];
 
 FRIENDLY['SKILL_R_LITE'] = [ 'SKILL_RUNEMASTERY', 15, 'SKILL_MAGIC', 15 ];
@@ -230,19 +241,321 @@ FRIENDLY['SKILL_CALMNESS'] = [ 'SKILL_SNEAKINESS', 10 ];
 
 FRIENDLY['SKILL_INTERCEPT'] = [ 'SKILL_COMBAT', 10 ];
 
-FRIENDLY['SKILL_TRAUMATURGY'] = [ 'SKILL_NECROMANCY', 20 ];
-FRIENDLY['SKILL_AURA_FEAR']  = [ 'SKILL_NECROMANCY', 20 ];
-FRIENDLY['SKILL_AURA_SHIVER'] = [ 'SKILL_NECROMANCY', 20 ];
-FRIENDLY['SKILL_AURA_DEATH'] = [ 'SKILL_NECROMANCY', 20 ];
+FRIENDLY['SKILL_NECROMANCY'] = [ 'SKILL_MAGIC', 5 ];
+FRIENDLY['SKILL_TRAUMATURGY'] = [ 'SKILL_MAGIC', 5 ];
+FRIENDLY['SKILL_AURA_FEAR'] = [ 'SKILL_MAGIC', 5 ];
+FRIENDLY['SKILL_AURA_SHIVER'] = [ 'SKILL_MAGIC', 5 ];
+FRIENDLY['SKILL_AURA_DEATH'] = [ 'SKILL_MAGIC', 5 ];
+
 
 FRIENDLY['SKILL_SWIM'] = [ 'SKILL_HEALTH', 25 ];
 FRIENDLY['SKILL_DIG'] = [ 'SKILL_HEALTH', 25 ];
 FRIENDLY['SKILL_CLIMB'] = [ 'SKILL_HEALTH', 25 ]; 
  
 var RACES = [ "RACE_HUMAN", "RACE_HALF_ELF", "RACE_ELF", "RACE_HOBBIT", "RACE_GNOME", "RACE_DWARF", "RACE_HALF_ORC", "RACE_HALF_TROLL", "RACE_DUNADAN", "RACE_HIGH_ELF", "RACE_YEEK", "RACE_GOBLIN", "RACE_ENT", "RACE_DRIDER", "RACE_DARK_ELF", "RACE_VAMPIRE", "RACE_DIVINE1", "RACE_DIVINE2", "RACE_KOBOLD" ];
-var CLASSES = [ "CLASS_WARRIOR", "CLASS_MAGE", "CLASS_PRIEST", "CLASS_ROGUE", "CLASS_MIMIC", "CLASS_ARCHER", "CLASS_PALADIN", "CLASS_RANGER", "CLASS_ADVENTURER", "CLASS_DRUID", "CLASS_SHAMAN", "CLASS_RUNEMASTER", "CLASS_MINDCRAFTER" ];
+var CLASSES = [ "CLASS_WARRIOR", "CLASS_MAGE", "CLASS_PRIEST", "CLASS_ROGUE", "CLASS_MIMIC", "CLASS_ARCHER", "CLASS_PALADIN", "CLASS_RANGER", "CLASS_ADVENTURER", "CLASS_DRUID", "CLASS_SHAMAN", "CLASS_RUNEMASTER", "CLASS_MINDCRAFTER", "CLASS_DEATHKNIGHT", "CLASS_HELLKNIGHT", "CLASS_CPRIEST" ];
 
-SPELL['Noxious Cloud']=[2, 'Air']; SPELL['Wing of Wind']=[16, 'Air']; SPELL['Poison Blood']=[22, 'Air']; SPELL['Thunder Storm']=[25, 'Air']; SPELL['Invisibility']=[30, 'Air']; SPELL['Call of the forest']=[1, 'Druid_Arcane']; SPELL['Toxic Moisture']=[3, 'Druid_Arcane']; SPELL['Natures Call']=[10, 'Druid_Arcane']; SPELL['Ancient Lore']=[20, 'Druid_Arcane']; SPELL['Garden of the Gods']=[35, 'Druid_Arcane']; SPELL['Power Bolt']=[1, 'Astral']; SPELL['Power Ray']=[5, 'Astral']; SPELL['Power Blast']=[10, 'Astral']; SPELL['Relocation']=[22, 'Astral']; SPELL['Vengence']=[30, 'Astral']; SPELL['Empowerment']=[40, 'Astral']; SPELL['The Silent Force']=[45, 'Astral']; SPELL['Sphere of Destruction']=[50, 'Astral']; SPELL['Gateway']=[50, 'Astral']; SPELL['Phase Door']=[2, 'Conveyance']; SPELL['Disarm']=[5, 'Conveyance']; SPELL['Teleport']=[10, 'Conveyance']; SPELL['Teleport Away']=[23, 'Conveyance']; SPELL['Recall']=[30, 'Conveyance']; SPELL['Probability Travel']=[35, 'Conveyance']; SPELL['Detect Monsters']=[3, 'Divination']; SPELL['Sense Hidden']=[5, 'Divination']; SPELL['Identify']=[8, 'Divination']; SPELL['Reveal Ways']=[9, 'Divination']; SPELL['Vision']=[15, 'Divination']; SPELL['Greater Identify']=[35, 'Divination']; SPELL['Dig']=[12, 'Earth']; SPELL['Stone Prison']=[25, 'Earth']; SPELL['Strike']=[25, 'Earth']; SPELL['Shake']=[27, 'Earth']; SPELL['Globe of Light']=[2, 'Fire']; SPELL['Fireflash']=[10, 'Fire']; SPELL['Fiery Shield']=[16, 'Fire']; SPELL['Firewall']=[20, 'Fire']; SPELL['Healing']=[3, 'HCuring']; SPELL['Curing']=[16, 'HCuring']; SPELL['Cleansing Light']=[18, 'HCuring']; SPELL['Remove Curses']=[19, 'HCuring']; SPELL['Faithful Focus']=[21, 'HCuring']; SPELL['Soul Curing']=[25, 'HCuring']; SPELL['Resurrection']=[30, 'HCuring']; SPELL['Blessing']=[1, 'HDefense']; SPELL['Holy Resistance']=[11, 'HDefense']; SPELL['Protection from Evil']=[12, 'HDefense']; SPELL['Glyph of Warding']=[35, 'HDefense']; SPELL['Martyrdom']=[40, 'HDefense']; SPELL['Curse']=[1, 'HOffense']; SPELL['Holy Light']=[2, 'HOffense']; SPELL['Release Souls']=[10, 'HOffense']; SPELL['Exocism']=[11, 'HOffense']; SPELL['Orb of Draining']=[20, 'HOffense']; SPELL['Drain Life']=[20, 'HOffense']; SPELL['Doomed Grounds']=[40, 'HOffense']; SPELL['Holy Light']=[2, 'HSupport']; SPELL['Sense Monsters']=[3, 'HSupport']; SPELL['Sanctuary']=[3, 'HSupport']; SPELL['Satisfy Hunger']=[10, 'HSupport']; SPELL['Sense Surroundings']=[10, 'HSupport']; SPELL['Zeal']=[31, 'HSupport']; SPELL['Manathrust']=[1, 'Mana']; SPELL['Remove Curses']=[20, 'Mana']; SPELL['Elemental Shield']=[20, 'Mana']; SPELL['Disruption Shield']=[35, 'Mana']; SPELL['Psionic blast']=[1, 'MIntrusion']; SPELL['Scare']=[1, 'MIntrusion']; SPELL['Confuse']=[3, 'MIntrusion']; SPELL['Hypnosis']=[5, 'MIntrusion']; SPELL['Drain strength']=[7, 'MIntrusion']; SPELL['Psychic Suppression']=[10, 'MIntrusion']; SPELL['Psi Storm']=[18, 'MIntrusion']; SPELL['Remote Vision']=[20, 'MIntrusion']; SPELL['Charm']=[33, 'MIntrusion']; SPELL['Recharge']=[5, 'Meta']; SPELL['Project Spells']=[10, 'Meta']; SPELL['Disperse Magic']=[15, 'Meta']; SPELL['Confuse']=[5, 'Mind']; SPELL['Stun']=[15, 'Mind']; SPELL['Sense minds']=[30, 'Mind']; SPELL['Telekenisis I']=[30, 'Mind']; SPELL['Grow trees']=[6, 'Nature']; SPELL['Healing']=[10, 'Nature']; SPELL['Recover']=[15, 'Nature']; SPELL['Vermin control']=[15, 'Nature']; SPELL['Regeneration']=[20, 'Nature']; SPELL['Focus']=[1, 'Druid_Physical']; SPELL['Herbal Tea']=[3, 'Druid_Physical']; SPELL['Quick Feet']=[13, 'Druid_Physical']; SPELL['Extra Growth']=[15, 'Druid_Physical']; SPELL['Forests Embrace']=[18, 'Druid_Physical']; SPELL['Psychokenesis']=[3, 'PPower']; SPELL['AutoKenesis I']=[5, 'PPower']; SPELL['AutoKenesis II']=[16, 'PPower']; SPELL['Feeback']=[18, 'PPower']; SPELL['Pyrokenesis']=[20, 'PPower']; SPELL['AutoKenesis III']=[24, 'PPower']; SPELL['Cryokenesis']=[24, 'PPower']; SPELL['Psychic Warp']=[30, 'PPower']; SPELL['TeleKenisis II']=[35, 'PPower']; SPELL['Kenetic Shield']=[40, 'PPower']; SPELL['Mage Lock']=[1, 'Temporal']; SPELL['Slow Monster']=[10, 'Temporal']; SPELL['Essence of Speed']=[15, 'Temporal']; SPELL['Banishment']=[30, 'Temporal']; SPELL['Clear Mind']=[3, 'TContact']; SPELL['Willpower']=[3, 'TContact']; SPELL['Self-reflection']=[15, 'TContact']; SPELL['Accellorate Nerves']=[20, 'TContact']; SPELL['Telepathy']=[20, 'TContact']; SPELL['Recognition']=[25, 'TContact']; SPELL['Stabilise Thoughts']=[25, 'TContact']; SPELL['Telekenesis II']=[35, 'TContact']; SPELL['Hellfire']=[20, 'Udun']; SPELL['Genocide']=[25, 'Udun']; SPELL['Wraithform']=[35, 'Udun']; SPELL['Disenchantment Bolt']=[40, 'Udun']; SPELL['Vapor']=[2, 'Water']; SPELL['Ents Potion']=[6, 'Water']; SPELL['Tidal Wave']=[16, 'Water']; SPELL['Ice Storm']=[22, 'Water'];
+SPELL['DRUID_ARCANE.Natures Call']=[15, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Toxic Moisture I']=[3, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Toxic Moisture II']=[20, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Toxic Moisture III']=[33, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Ancient Lore']=[20, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Garden of the Gods']=[35, 'DRUID_ARCANE'];
+SPELL['DRUID_ARCANE.Call of the Forest']=[40, 'DRUID_ARCANE'];
+SPELL['DRUID_PHYSICAL.Forests Embrace I']=[18, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Forests Embrace II']=[29, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Forests Embrace III']=[40, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Quickfeet']=[13, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Herbal Tea']=[3, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Extra Growth I']=[15, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Extra Growth II']=[25, 'DRUID_PHYSICAL'];
+SPELL['DRUID_PHYSICAL.Focus']=[1, 'DRUID_PHYSICAL'];
+SPELL['ASTRAL.Power Bolt I']=[1, 'ASTRAL'];
+SPELL['ASTRAL.Power Bolt II']=[20, 'ASTRAL'];
+SPELL['ASTRAL.Power Bolt III']=[40, 'ASTRAL'];
+SPELL['ASTRAL.Power Ray I']=[5, 'ASTRAL'];
+SPELL['ASTRAL.Power Ray II']=[20, 'ASTRAL'];
+SPELL['ASTRAL.Power Ray III']=[40, 'ASTRAL'];
+SPELL['ASTRAL.Power Blast I']=[10, 'ASTRAL'];
+SPELL['ASTRAL.Power Blast II']=[25, 'ASTRAL'];
+SPELL['ASTRAL.Power Blast III']=[45, 'ASTRAL'];
+SPELL['ASTRAL.Relocation']=[22, 'ASTRAL'];
+SPELL['ASTRAL.Vengeance']=[30, 'ASTRAL'];
+SPELL['ASTRAL.Empowerment']=[40, 'ASTRAL'];
+SPELL['ASTRAL.The Silent Force']=[45, 'ASTRAL'];
+SPELL['ASTRAL.Sphere of Destruction']=[50, 'ASTRAL'];
+SPELL['ASTRAL.Gateway']=[40, 'ASTRAL'];
+SPELL['MINTRUSION.Scare I']=[1, 'MINTRUSION'];
+SPELL['MINTRUSION.Scare II']=[15, 'MINTRUSION'];
+SPELL['MINTRUSION.Confuse I']=[3, 'MINTRUSION'];
+SPELL['MINTRUSION.Confuse II']=[18, 'MINTRUSION'];
+SPELL['MINTRUSION.Hypnosis I']=[5, 'MINTRUSION'];
+SPELL['MINTRUSION.Hypnosis II']=[20, 'MINTRUSION'];
+SPELL['MINTRUSION.Drain Strength I']=[7, 'MINTRUSION'];
+SPELL['MINTRUSION.Drain Strength II']=[22, 'MINTRUSION'];
+SPELL['MINTRUSION.Psionic Blast I']=[1, 'MINTRUSION'];
+SPELL['MINTRUSION.Psionic Blast II']=[20, 'MINTRUSION'];
+SPELL['MINTRUSION.Psionic Blast III']=[40, 'MINTRUSION'];
+SPELL['MINTRUSION.Psi Storm I']=[18, 'MINTRUSION'];
+SPELL['MINTRUSION.Psi Storm II']=[38, 'MINTRUSION'];
+SPELL['MINTRUSION.Psychic Suppression']=[10, 'MINTRUSION'];
+SPELL['MINTRUSION.Remote Vision']=[20, 'MINTRUSION'];
+SPELL['MINTRUSION.Charm']=[1, 'MINTRUSION'];
+SPELL['MINTRUSION.Stop Charm']=[33, 'MINTRUSION'];
+SPELL['PPOWER.Psychic Hammer']=[1, 'PPOWER'];
+SPELL['PPOWER.Autokinesis I']=[5, 'PPOWER'];
+SPELL['PPOWER.Autokinesis II']=[16, 'PPOWER'];
+SPELL['PPOWER.Autokinesis III']=[24, 'PPOWER'];
+SPELL['PPOWER.Psychic Warp']=[30, 'PPOWER'];
+SPELL['PPOWER.Psychokinesis']=[3, 'PPOWER'];
+SPELL['PPOWER.Psi Storm']=[18, 'PPOWER'];
+SPELL['PPOWER.Feedback']=[18, 'PPOWER'];
+SPELL['PPOWER.Pyrokinesis I']=[20, 'PPOWER'];
+SPELL['PPOWER.Pyrokinesis II']=[37, 'PPOWER'];
+SPELL['PPOWER.Cryokinesis I']=[24, 'PPOWER'];
+SPELL['PPOWER.Cryokinesis II']=[39, 'PPOWER'];
+SPELL['PPOWER.Kinetic Shield']=[40, 'PPOWER'];
+SPELL['TCONTACT-PPOWER.Mental Fusion']=[40, 'TCONTACT-PPOWER'];
+SPELL['TCONTACT.Cause Agression']=[5, 'TCONTACT'];
+SPELL['TCONTACT.Divert Attention']=[10, 'TCONTACT'];
+SPELL['TCONTACT.Self-Reflection']=[15, 'TCONTACT'];
+SPELL['TCONTACT.Willpower']=[3, 'TCONTACT'];
+SPELL['TCONTACT.Accelerate Nerves']=[20, 'TCONTACT'];
+SPELL['TCONTACT.Clear Mind']=[3, 'TCONTACT'];
+SPELL['TCONTACT.Stabilize Thoughts']=[25, 'TCONTACT'];
+SPELL['TCONTACT.Telepathy']=[20, 'TCONTACT'];
+SPELL['TCONTACT-MINTRUSION.Recognition']=[20, 'TCONTACT-MINTRUSION'];
+SPELL['TCONTACT-PPOWER.Telekinesis II']=[35, 'TCONTACT-PPOWER'];
+SPELL['OHERETICISM.Terror I']=[3, 'OHERETICISM'];
+SPELL['OHERETICISM.Terror II']=[18, 'OHERETICISM'];
+SPELL['OHERETICISM.Ignore Fear']=[7, 'OHERETICISM'];
+SPELL['OHERETICISM.Fire Bolt I']=[10, 'OHERETICISM'];
+SPELL['OHERETICISM.Fire Bolt II']=[25, 'OHERETICISM'];
+SPELL['OHERETICISM.Fire Bolt III']=[40, 'OHERETICISM'];
+SPELL['OHERETICISM.Wrathflame']=[12, 'OHERETICISM'];
+SPELL['OHERETICISM.Demonic Strength']=[26, 'OHERETICISM'];
+SPELL['OHERETICISM.Chaos Bolt']=[29, 'OHERETICISM'];
+SPELL['OHERETICISM.Wicked Oath']=[35, 'OHERETICISM'];
+SPELL['OHERETICISM.Levitation']=[39, 'OHERETICISM'];
+SPELL['OHERETICISM.Robes of Havoc']=[42, 'OHERETICISM'];
+SPELL['OHERETICISM.Hellfire III']=[42, 'OHERETICISM'];
+SPELL['OHERETICISM.Blood Sacrifice']=[45, 'OHERETICISM'];
+SPELL['OHERETICISM.Flame Wave I']=[20, 'OHERETICISM'];
+SPELL['OHERETICISM.Flame Wave II']=[35, 'OHERETICISM'];
+SPELL['OSHADOW.Cause Fear I']=[1, 'OSHADOW'];
+SPELL['OSHADOW.Cause Fear II']=[18, 'OSHADOW'];
+SPELL['OSHADOW.Blindness']=[3, 'OSHADOW'];
+SPELL['OSHADOW.Darkness']=[20, 'OSHADOW'];
+SPELL['OSHADOW.Detect Invisible']=[3, 'OSHADOW'];
+SPELL['OSHADOW.Poisonous Fog I']=[8, 'OSHADOW'];
+SPELL['OSHADOW.Poisonous Fog II']=[20, 'OSHADOW'];
+SPELL['OSHADOW.Poisonous Fog III']=[33, 'OSHADOW'];
+SPELL['OSHADOW.Veil of Night I']=[5, 'OSHADOW'];
+SPELL['OSHADOW.Veil of Night II']=[20, 'OSHADOW'];
+SPELL['OSHADOW.Shadow Bolt I']=[10, 'OSHADOW'];
+SPELL['OSHADOW.Shadow Bolt II']=[25, 'OSHADOW'];
+SPELL['OSHADOW.Shadow Bolt III']=[40, 'OSHADOW'];
+SPELL['OSHADOW.Aspect of Peril']=[14, 'OSHADOW'];
+SPELL['OSHADOW-CONVEYANCE.Shadow Gate']=[26, 'OSHADOW-CONVEYANCE'];
+SPELL['OSHADOW.Shadow Shroud']=[30, 'OSHADOW'];
+SPELL['OSHADOW-HOFFENSE.Chaos Bolt']=[30, 'OSHADOW-HOFFENSE'];
+SPELL['OSHADOW-NECROMANCY.Nether Bolt']=[30, 'OSHADOW-NECROMANCY'];
+SPELL['OSHADOW-NECROMANCY.Drain Life I']=[20, 'OSHADOW-NECROMANCY'];
+SPELL['OSHADOW-NECROMANCY.Drain Life']=[40, 'OSHADOW-NECROMANCY'];
+SPELL['OSHADOW.Darkness Storm']=[42, 'OSHADOW'];
+SPELL['OSPIRIT.Cause Wounds I']=[1, 'OSPIRIT'];
+SPELL['OSPIRIT.Cause Wounds II']=[20, 'OSPIRIT'];
+SPELL['OSPIRIT.Cause Wounds III']=[40, 'OSPIRIT'];
+SPELL['OSPIRIT.Tame Fear']=[1, 'OSPIRIT'];
+SPELL['OSPIRIT.Starlight I']=[2, 'OSPIRIT'];
+SPELL['OSPIRIT.Starlight II']=[22, 'OSPIRIT'];
+SPELL['OSPIRIT.Meditation']=[4, 'OSPIRIT'];
+SPELL['OSPIRIT.Ethereal Eye']=[28, 'OSPIRIT'];
+SPELL['OSPIRIT.Spear of Light I']=[10, 'OSPIRIT'];
+SPELL['OSPIRIT.Spear of Light II']=[25, 'OSPIRIT'];
+SPELL['OSPIRIT.Spear of Light III']=[40, 'OSPIRIT'];
+SPELL['OSPIRIT.Lightning I']=[10, 'OSPIRIT'];
+SPELL['OSPIRIT.Lightning II']=[25, 'OSPIRIT'];
+SPELL['OSPIRIT.Lightning III']=[40, 'OSPIRIT'];
+SPELL['OSPIRIT.Lift Curses I']=[15, 'OSPIRIT'];
+SPELL['OSPIRIT.Lift Curses II']=[35, 'OSPIRIT'];
+SPELL['OSPIRIT.Trance']=[5, 'OSPIRIT'];
+SPELL['OSPIRIT.Possess']=[23, 'OSPIRIT'];
+SPELL['OSPIRIT.Stop Possess']=[23, 'OSPIRIT'];
+SPELL['OSPIRIT.Guardian Spirit I']=[25, 'OSPIRIT'];
+SPELL['OSPIRIT.Guardian Spirit II']=[45, 'OSPIRIT'];
+SPELL['OSPIRIT.Purification Rites I']=[30, 'OSPIRIT'];
+SPELL['OSPIRIT.Purification Rites II']=[45, 'OSPIRIT'];
+SPELL['HCURING.Cure Wounds I']=[3, 'HCURING'];
+SPELL['HCURING.Cure Wounds II']=[23, 'HCURING'];
+SPELL['HCURING.Heal I']=[3, 'HCURING'];
+SPELL['HCURING.Heal II']=[23, 'HCURING'];
+SPELL['HCURING.Heal III']=[40, 'HCURING'];
+SPELL['HCURING.Break Curses I']=[10, 'HCURING'];
+SPELL['HCURING.Break Curses II']=[35, 'HCURING'];
+SPELL['HCURING.Cleansing Light I']=[18, 'HCURING'];
+SPELL['HCURING.Cleansing Light II']=[29, 'HCURING'];
+SPELL['HCURING.Cleansing Light III']=[40, 'HCURING'];
+SPELL['HCURING.Curing I']=[1, 'HCURING'];
+SPELL['HCURING.Curing II']=[11, 'HCURING'];
+SPELL['HCURING.Curing III']=[21, 'HCURING'];
+SPELL['HCURING.Restoration']=[31, 'HCURING'];
+SPELL['HCURING.Faithful Focus']=[21, 'HCURING'];
+SPELL['HCURING.Resurrection']=[30, 'HCURING'];
+SPELL['HCURING.Soul Curing']=[25, 'HCURING'];
+SPELL['HDEFENSE.Blessing I']=[1, 'HDEFENSE'];
+SPELL['HDEFENSE.Blessing II']=[15, 'HDEFENSE'];
+SPELL['HDEFENSE.Blessing III']=[30, 'HDEFENSE'];
+SPELL['HDEFENSE.Holy Resistance I']=[20, 'HDEFENSE'];
+SPELL['HDEFENSE.Holy Resistance II']=[30, 'HDEFENSE'];
+SPELL['HDEFENSE.Holy Resistance III']=[40, 'HDEFENSE'];
+SPELL['HDEFENSE.Protection from Evil']=[12, 'HDEFENSE'];
+SPELL['HDEFENSE.Dispel Magic']=[18, 'HDEFENSE'];
+SPELL['HDEFENSE.Glyph of Warding']=[35, 'HDEFENSE'];
+SPELL['HDEFENSE.Martyrdom']=[45, 'HDEFENSE'];
+SPELL['HOFFENSE.Curse I']=[1, 'HOFFENSE'];
+SPELL['HOFFENSE.Curse II']=[16, 'HOFFENSE'];
+SPELL['HOFFENSE.Curse III']=[26, 'HOFFENSE'];
+SPELL['HOFFENSE-HSUPPORT.Holy Light I']=[2, 'HOFFENSE-HSUPPORT'];
+SPELL['HOFFENSE-HSUPPORT.Holy Light II']=[20, 'HOFFENSE-HSUPPORT'];
+SPELL['HOFFENSE.Cause wounds']=[5, 'HOFFENSE'];
+SPELL['HOFFENSE.Orb of Draining I']=[20, 'HOFFENSE'];
+SPELL['HOFFENSE.Orb of Draining II']=[40, 'HOFFENSE'];
+SPELL['HOFFENSE.Exorcism I']=[20, 'HOFFENSE'];
+SPELL['HOFFENSE.Exorcism II']=[40, 'HOFFENSE'];
+SPELL['HOFFENSE.Redemption I']=[10, 'HOFFENSE'];
+SPELL['HOFFENSE.Redemption II']=[25, 'HOFFENSE'];
+SPELL['HOFFENSE.Redemption III']=[40, 'HOFFENSE'];
+SPELL['HDCS.Doomed Grounds']=[40, 'HDCS'];
+SPELL['HOFFENSE.Earthquake']=[42, 'HOFFENSE'];
+SPELL['HOFFENSE-HCURING.Holy Word']=[45, 'HOFFENSE-HCURING'];
+SPELL['HSUPPORT.Remove Fear']=[1, 'HSUPPORT'];
+SPELL['HSUPPORT.Sanctuary I']=[3, 'HSUPPORT'];
+SPELL['HSUPPORT.Sanctuary II']=[23, 'HSUPPORT'];
+SPELL['HSUPPORT.Satisfy Hunger']=[10, 'HSUPPORT'];
+SPELL['HSUPPORT.Sense Surroundings I']=[20, 'HSUPPORT'];
+SPELL['HSUPPORT.Sense Surroundings II']=[40, 'HSUPPORT'];
+SPELL['HSUPPORT.Detect Evil']=[3, 'HSUPPORT'];
+SPELL['HSUPPORT.Sense Monsters']=[33, 'HSUPPORT'];
+SPELL['HSUPPORT.Zeal I']=[27, 'HSUPPORT'];
+SPELL['HSUPPORT.Zeal II']=[37, 'HSUPPORT'];
+SPELL['HSUPPORT.Zeal III']=[47, 'HSUPPORT'];
+SPELL['AIR.Conveyance']=[3, 'AIR'];
+SPELL['AIR.Noxious Cloud II']=[18, 'AIR'];
+SPELL['AIR.Noxious Cloud III']=[33, 'AIR'];
+SPELL['AIR.Lightning Bolt I']=[6, 'AIR'];
+SPELL['AIR.Lightning Bolt II']=[21, 'AIR'];
+SPELL['AIR.Lightning Bolt III']=[40, 'AIR'];
+SPELL['AIR-CONVEYANCE.Wings of Winds']=[16, 'AIR-CONVEYANCE'];
+SPELL['AIR.Invisibility']=[30, 'AIR'];
+SPELL['NATURE.Poison Blood']=[30, 'NATURE'];
+SPELL['AIR-NATURE.Thunderstorm']=[15, 'AIR-NATURE'];
+SPELL['CONVEYANCE.Phase Door']=[2, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Disarm']=[5, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Teleportation']=[10, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Teleport Away I']=[23, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Teleport Away II']=[43, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Recall']=[30, 'CONVEYANCE'];
+SPELL['CONVEYANCE.Probability Travel']=[35, 'CONVEYANCE'];
+SPELL['DIVINATION.Greater Identify']=[35, 'DIVINATION'];
+SPELL['DIVINATION.Identify I']=[8, 'DIVINATION'];
+SPELL['DIVINATION.Identify II']=[25, 'DIVINATION'];
+SPELL['DIVINATION.Identify III']=[35, 'DIVINATION'];
+SPELL['DIVINATION.Vision I']=[18, 'DIVINATION'];
+SPELL['DIVINATION.Vision II']=[40, 'DIVINATION'];
+SPELL['DIVINATION.Sense Hidden I']=[5, 'DIVINATION'];
+SPELL['DIVINATION.Sense Hidden II']=[20, 'DIVINATION'];
+SPELL['DIVINATION.Reveal Ways']=[9, 'DIVINATION'];
+SPELL['DIVINATION.Detect Monsters']=[3, 'DIVINATION'];
+SPELL['EARTH.Stone Skin']=[1, 'EARTH'];
+SPELL['EARTH.Dig']=[12, 'EARTH'];
+SPELL['EARTH.Acid Bolt I']=[12, 'EARTH'];
+SPELL['EARTH.Acid Bolt II']=[24, 'EARTH'];
+SPELL['EARTH.Acid Bolt III']=[40, 'EARTH'];
+SPELL['EARTH.Stone Prison']=[25, 'EARTH'];
+SPELL['EARTH.Strike I']=[25, 'EARTH'];
+SPELL['EARTH.Strike II']=[37, 'EARTH'];
+SPELL['EARTH.Shake']=[35, 'EARTH'];
+SPELL['FIRE.Globe of Light I']=[2, 'FIRE'];
+SPELL['FIRE.Globe of Light II']=[22, 'FIRE'];
+SPELL['FIRE.Fire Bolt I']=[10, 'FIRE'];
+SPELL['FIRE.Fire Bolt II']=[25, 'FIRE'];
+SPELL['FIRE.Fire Bolt III']=[40, 'FIRE'];
+SPELL['FIRE.Fire Ball I']=[23, 'FIRE'];
+SPELL['FIRE.Fire Ball II']=[40, 'FIRE'];
+SPELL['FIRE.Fireflash I']=[30, 'FIRE'];
+SPELL['FIRE.Fireflash II']=[42, 'FIRE'];
+SPELL['FIRE.Fiery Shield I']=[16, 'FIRE'];
+SPELL['FIRE.Fiery Shield II']=[36, 'FIRE'];
+SPELL['FIRE.Firewall I']=[20, 'FIRE'];
+SPELL['FIRE.Firewall II']=[40, 'FIRE'];
+SPELL['MANA.Manathrust I']=[1, 'MANA'];
+SPELL['MANA.Manathrust II']=[20, 'MANA'];
+SPELL['MANA.Manathrust III']=[40, 'MANA'];
+SPELL['MANA.Remove Curses I']=[20, 'MANA'];
+SPELL['MANA.Remove Curses II']=[40, 'MANA'];
+SPELL['MANA.Recharge I']=[5, 'MANA'];
+SPELL['MANA.Recharge II']=[25, 'MANA'];
+SPELL['MANA.Recharge III']=[40, 'MANA'];
+SPELL['MANA.Disperse Magic']=[15, 'MANA'];
+SPELL['MANA.Disruption Shield']=[35, 'MANA'];
+SPELL['META.Recharge I']=[5, 'META'];
+SPELL['META.Recharge II']=[25, 'META'];
+SPELL['META.Recharge III']=[40, 'META'];
+SPELL['META.Project Spells']=[10, 'META'];
+SPELL['META.Disperse Magic']=[15, 'META'];
+SPELL['META.Remove Curses I']=[15, 'META'];
+SPELL['META.Remove Curses II']=[40, 'META'];
+SPELL['MIND.Charm']=[1, 'MIND'];
+SPELL['MIND.Confusion I']=[5, 'MIND'];
+SPELL['MIND.Confusion II']=[20, 'MIND'];
+SPELL['MIND.Stun I']=[15, 'MIND'];
+SPELL['MIND.Stun II']=[40, 'MIND'];
+SPELL['MIND-CONVEYANCE.Telekinesis I']=[35, 'MIND-CONVEYANCE'];
+SPELL['MIND.Sense Minds']=[30, 'MIND'];
+SPELL['NATURE.Grow Trees']=[30, 'NATURE'];
+SPELL['NATURE.Healing I']=[1, 'NATURE'];
+SPELL['NATURE.Healing II']=[20, 'NATURE'];
+SPELL['NATURE.Healing III']=[40, 'NATURE'];
+SPELL['NATURE.Recovery I']=[15, 'NATURE'];
+SPELL['NATURE.Recovery II']=[35, 'NATURE'];
+SPELL['NATURE.Regeneration']=[20, 'NATURE'];
+SPELL['NATURE.Vermin Control']=[10, 'NATURE'];
+SPELL['FIRE-WATER.Elemental Shield I']=[15, 'FIRE-WATER'];
+SPELL['FIRE-WATER-AIR-EARTH.Elemental Shield II']=[20, 'FIRE-WATER-AIR-EARTH'];
+SPELL['NATURE.Summon Animal']=[25, 'NATURE'];
+SPELL['TEMPORAL.Magelock I']=[1, 'TEMPORAL'];
+SPELL['TEMPORAL.Magelock II']=[41, 'TEMPORAL'];
+SPELL['TEMPORAL.Slow Monster I']=[10, 'TEMPORAL'];
+SPELL['TEMPORAL.Slow Monster II']=[30, 'TEMPORAL'];
+SPELL['TEMPORAL.Essence of Speed']=[15, 'TEMPORAL'];
+SPELL['TEMPORAL-CONVEYANCE.Mass Stasis']=[45, 'TEMPORAL-CONVEYANCE'];
+SPELL['UDUN.Drain']=[1, 'UDUN'];
+SPELL['UDUN.Genocide']=[25, 'UDUN'];
+SPELL['UDUN.Obliteration']=[40, 'UDUN'];
+SPELL['UDUN.Wraithform']=[35, 'UDUN'];
+SPELL['UDUN.Flame of Udun']=[35, 'UDUN'];
+SPELL['UDUN.Disenchantment Ray']=[40, 'UDUN'];
+SPELL['UDUN.Hellfire I']=[20, 'UDUN'];
+SPELL['UDUN.Hellfire II']=[40, 'UDUN'];
+SPELL['UDUN.Stop Wraithform']=[20, 'UDUN'];
+SPELL['WATER.Frost Bolt I']=[8, 'WATER'];
+SPELL['WATER.Frost Bolt II']=[22, 'WATER'];
+SPELL['WATER.Frost Bolt III']=[40, 'WATER'];
+SPELL['WATER.Water Bolt I']=[14, 'WATER'];
+SPELL['WATER.Water Bolt II']=[24, 'WATER'];
+SPELL['WATER.Water Bolt III']=[40, 'WATER'];
+SPELL['WATER.Tidal Wave I']=[16, 'WATER'];
+SPELL['WATER.Tidal Wave II']=[36, 'WATER'];
+SPELL['WATER.Frost Barrier I']=[22, 'WATER'];
+SPELL['WATER.Frost Barrier II']=[37, 'WATER'];
+SPELL['WATER.Ents Potion']=[6, 'WATER'];
+SPELL['WATER.Vapor I']=[2, 'WATER'];
+SPELL['WATER.Vapor II']=[20, 'WATER'];
+SPELL['WATER.Vapor III']=[40, 'WATER'];
+SPELL['WATER.Frost Ball I']=[22, 'WATER'];
+SPELL['WATER.Frost Ball II']=[40, 'WATER'];
+
 
 BODYFORM['Cave bear']=[5,'Druid']; BODYFORM['Panther']=[5,'Druid']; BODYFORM['Grizzly bear']=[10,'Druid']; BODYFORM['Yeti']=[10,'Druid']; BODYFORM['Griffon']=[15,'Druid']; BODYFORM['Sasquatch']=[15,'Druid']; BODYFORM['Werebear']=[20,'Druid']; BODYFORM['Great eagle']=[20,'Druid']; BODYFORM['Great white shark']=[20,'Druid']; BODYFORM['Aranea']=[20,'Druid']; BODYFORM['Wyvern']=[25,'Druid']; BODYFORM['Multi-hued Hound']=[25,'Druid']; BODYFORM['5-headed hydra']=[30,'Druid']; BODYFORM['Minotaur']=[30,'Druid']; BODYFORM['Giant squid']=[30,'Druid']; BODYFORM['7-headed hydra']=[35,'Druid']; BODYFORM['Elder aranea']=[35,'Druid']; BODYFORM['Plasma hound']=[35,'Druid']; BODYFORM['11-headed hydra']=[40,'Druid']; BODYFORM['Giant Roc']=[40,'Druid']; BODYFORM['Lesser kraken']=[40,'Druid']; BODYFORM['Maulotaur']=[45,'Druid']; BODYFORM['Winged Horror']=[45,'Druid']; BODYFORM['Spectral Tyrannosaur']=[50,'Druid']; BODYFORM['Greater kraken']=[50,'Druid']; BODYFORM['Jabberwock']=[50,'Druid']; BODYFORM['Horned Serpent']=[55,'Druid']; BODYFORM['Firebird']=[60,'Druid']; BODYFORM['Master yeek']=[12, 'Wielding']; BODYFORM['Ogre']=[13, 'Wielding']; BODYFORM['Uruk']=[16, 'Wielding']; BODYFORM['Hill Giant']=[20, 'Wielding']; BODYFORM['Fire Giant']=[25, 'Wielding']; BODYFORM['Green Dragonrider']=[30, 'Wielding']; BODYFORM['Cloud Giant']=[31,'Wielding']; BODYFORM['Storm Giant']=[35,'Wielding']; BODYFORM['Collossus']=[35,'Wielding']; BODYFORM['Blue Dragonrider']=[40,'Wielding']; BODYFORM['Drolem']=[44,'Wielding']; BODYFORM['Seraph']=[45,'Wielding']; BODYFORM['Fallen Angel']=[49,'Wielding']; BODYFORM['Brown Dragonrider']=[50,'Wielding']; BODYFORM['Lesser Titan']=[50,'Wielding']; BODYFORM['Archon']=[55,'Wielding']; BODYFORM['Greater Titan']=[58,'Wielding']; BODYFORM['Bronze Dragonrider']=[60,'Wielding']; BODYFORM['Bone Golem']=[61,'Wielding']; BODYFORM['Bronze Golem']=[65,'Wielding']; BODYFORM['Gold Dragonrider']=[70,'Wielding']; BODYFORM['Novice Mage']=[2,'Mimic']; BODYFORM['Novice Ranger']=[4,'Mimic']; BODYFORM['Rotting Corpse']=[8,'Mimic']; BODYFORM['Tengu']=[10,'Mimic']; BODYFORM['Druid']=[13,'Mimic']; BODYFORM['Illusionist']=[13,'Mimic']; BODYFORM['Lizard Man']=[16,'Mimic']; BODYFORM['Dark-elven Lord']=[20,'Mimic']; BODYFORM['Dark-elven Warlock']=[23,'Mimic']; BODYFORM['Gargoyle']=[34,'Mimic']; BODYFORM['Halfling Slinger']=[35,'Mimic']; BODYFORM['Death Quasit']=[40,'Mimic']; BODYFORM['Master Lich']=[41,'Mimic']; BODYFORM['Vampire Lord']=[42,'Mimic']; BODYFORM['Lesser Black Reaver']=[45,'Mimic']; BODYFORM['Lesser Balrog']=[49,'Mimic']; BODYFORM['Demilich']=[54,'Mimic']; BODYFORM['Elder Vampire']=[54,'Mimic']; BODYFORM['Black Reaver']=[74,'Mimic']; BODYFORM['Greater Balrog']=[80,'Mimic']; BODYFORM['Poltergeist']=[3,'Shaman']; BODYFORM['Green Glutton Ghost']=[5,'Shaman']; BODYFORM['Phantom Warrior']=[8,'Shaman']; BODYFORM['Air Spirit']=[12,'Shaman']; BODYFORM['Moaning Spirit']=[12,'Shaman']; BODYFORM['Umber Hulk']=[16,'Shaman']; BODYFORM['Dreadmaster']=[44,'Shaman']; BODYFORM['Dreadlord']=[62,'Shaman']; BODYFORM['Ancient Blue|Bronze dragons']=[40,'Weaponless']; BODYFORM['Ancient White|Green dragons']=[40,'Weaponless']; BODYFORM['Ancient Black|Red|Gold dragons']=[41,'Weaponless']; BODYFORM['Ancient Multihued Dragon']=[51,'Weaponless']; BODYFORM['Great Storm|Swamp|Ice Wyrms']=[63,'Weaponless']; BODYFORM['Wyrm of Perplexity']=[63,'Weaponless']; BODYFORM['Wyrm of Radiance']=[63,'Weaponless']; BODYFORM['Hell|Bile|Thunder Wyrms']=[67,'Weaponless']; BODYFORM['Chaos|Law Wyrms']=[75,'Weaponless']; BODYFORM['Balance|Many Coloured Wyrms']=[80,'Weaponless']; BODYFORM['Power Wyrm']=[85,'Weaponless']; BODYFORM['Cave Spider']=[2,'Armless']; BODYFORM['Light|Dark Hounds']=[15,'Armless']; BODYFORM['Fire|Cold Hounds']=[18,'Armless']; BODYFORM['Energy|Earth Hounds']=[20,'Armless']; BODYFORM['Acid|Air Hounds']=[20,'Armless']; BODYFORM['Phase Spider']=[20,'Armless']; BODYFORM['Vibration|Nexus Hounds']=[27,'Armless']; BODYFORM['Multihued Hound']=[33,'Armless']; BODYFORM['Gravity|Inertia|Impact Hounds']=[35,'Armless']; BODYFORM['Nether|Time|Plasma Hounds']=[51,'Armless'];
 
@@ -286,20 +599,28 @@ while(<>) {
 			$v = $2; $e = 0;
 			if ($current_race eq "RACE_DIVINE") {
 				if ($s =~ /(HOFFENSE|HDEFENSE|HCURING|HSUPPORT)/)  {
-					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 70*2.1];\n";
+					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 210];\n";
 					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, -1];\n";
+
+				} elsif ( $s =~ /(OSHADOW)/) {
+					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, -1];\n";
+					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 210];\n"; 
+
+				} elsif ( $s =~ /(OSPIRIT)/) {
+					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 210];\n";
+					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, -1];\n"; 
 
 				} elsif ( $s =~ /(NECROMANCY|TRAUMATURGY)/) {
 					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, -1];\n";
-					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 70*3];\n"; 
+					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 300];\n"; 
 
 				} elsif ( $s =~ /(FEAR|SHIVER)/) {
-					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 70*3];\n";
-					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 70*3];\n"; 
+					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 300];\n";
+					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 300];\n"; 
 
 				} elsif ( $s =~ /(DEATH)/) {
 					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, -1];\n";
-					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 70*3];\n"; 
+					print "\tPRACE['RACE_DIVINE2']['$s'] = [0, 0, 300];\n"; 
 
 				} elsif ( $s =~ /(SNEAKINESS|STEALTH)/) {
 					print "\tPRACE['RACE_DIVINE1']['$s'] = [0, 0, 110];\n"; 
@@ -327,15 +648,15 @@ while(<>) {
 		} elsif (/player_class/) {
 print <<EOM; #special divine section
 
-	PRACE['RACE_DIVINE1']['SKILL_DIVINATION'] = [0, 0, 170];
-	PRACE['RACE_DIVINE1']['SKILL_POLEARM'] = [0, 0, 130];
-	PRACE['RACE_DIVINE1']['SKILL_BLUNT'] = [0, 0, 130];
+	PRACE['RACE_DIVINE1']['SKILL_DIVINATION'] = [0, 0, 170]; 
 	PRACE['RACE_DIVINE1']['SKILL_SWORD'] = [0, 0, 130];
-	PRACE['RACE_DIVINE1']['SKILL_R_LITE'] = [0, 0, 200];
-	PRACE['RACE_DIVINE1']['SKILL_R_MANA'] = [0, 0, 200];
+	PRACE['RACE_DIVINE1']['SKILL_BLUNT'] = [0, 0, 130];
+	PRACE['RACE_DIVINE1']['SKILL_POLEARM'] = [0, 0, 130]; 
+	PRACE['RACE_DIVINE1']['SKILL_R_LITE'] = [0, 0, 170];
+	PRACE['RACE_DIVINE1']['SKILL_R_MANA'] = [0, 0, 170];
 
-	PRACE['RACE_DIVINE2']['SKILL_R_DARK'] = [0, 0, 200];
-	PRACE['RACE_DIVINE2']['SKILL_R_NETH'] = [0, 0, 200];
+	PRACE['RACE_DIVINE2']['SKILL_R_DARK'] = [0, 0, 170];
+	PRACE['RACE_DIVINE2']['SKILL_R_NETH'] = [0, 0, 170];
 	PRACE['RACE_DIVINE2']['SKILL_FIRE'] = [0, 0, 170];
 	PRACE['RACE_DIVINE2']['SKILL_AIR'] = [0, 0, 170];
 	PRACE['RACE_DIVINE2']['SKILL_CONVEYANCE'] = [0, 0, 170]; 
@@ -350,6 +671,10 @@ EOM
 	} else {
 		if (/"($CLASS)"/) {
 			$current_class = $classes_TOKEN{$1};
+			if ($1 eq "Priest" && $CLASS_DONE{"CLASS_PRIEST"}) {
+				#Priest is a non-unique class string
+				$current_class = "CLASS_CPRIEST";
+			}
 			$H = "PCLASS['$current_class']";
 			print "\tPCLASS['$current_class'] = [];\n" if (!$CLASS_DONE{$current_class});
 			$CLASS_DONE{$current_class} = 1;
@@ -451,6 +776,8 @@ function refresh(force) {
 				}
 			}
 		} else { 
+			if (($('#race').val() == 'RACE_DIVINE1' || $('#race').val() == 'RACE_DIVINE2') && race_x == 2.10) race_x *= 0.7;
+
 			TREE_BASE[skill] = Math.round(race_val + class_val);
 			TREE_MOD[skill] = Math.round((race_mod + class_mod) * class_x * race_x);
 			if ($('#race').val() == 'RACE_DIVINE1' || 
@@ -576,7 +903,7 @@ function summarize(t) {
 		var bpr = 1;
 		my_t += '<p><ul>Martial Arts bonus(es):<ul>';
 		if (v(s) >= 10000) {
-			my_t += '<li>Levitation</li>';
+			my_t += '<li>Feather falling</li>';
 			bpr++;
 		}
 		if (v(s) >= 15000) {
@@ -584,7 +911,7 @@ function summarize(t) {
 			bpr++;
 		}
 		if (v(s) >= 20000) {
-			my_t += '<li>Confusion Resistance</li>';
+			my_t += '<li>Confusion resistance</li>';
 			bpr++;
 		}
 		if (v(s) >= 25000) {
@@ -609,10 +936,10 @@ function summarize(t) {
 		my_t += '</ul></p>';
 	}
 	s = 'EARTH';
-	if (v(s) >= 30000) {
+	if (v(s) >= 40000) {
 		my_t += '<p>(Earth) You resist shards</p>';
 	}
-	if (v(s) >= 45000) {
+	if (v(s) >= 50000) {
 		my_t += '<p>(Earth) You resist earthquakes</p>';
 	}
 
@@ -630,11 +957,11 @@ function summarize(t) {
 	s = 'WATER';
 	if (v(s) >= 50000) {
 		my_t += '<p>(Water) You are immune to water</p>';
-	} else if (v(s) >= 30000) {
+	} else if (v(s) >= 40000) {
 		my_t += '<p>(Water) You resist water</p>';
 	} 
-	if (v(s) >= 40000) {
-		my_t += '<p>(Water) You can swim</p>';
+	if (v(s) >= 30000) {
+		my_t += '<p>(Water) You can pass through water easily</p>';
 	}
 	
 	s = 'FIRE';
@@ -645,7 +972,7 @@ function summarize(t) {
 	} 
 
 	if (v('MANA') >= 40000) {
-		my_t += '<p>(Mana) You resist magical attacks</p>';
+		my_t += '<p>(Mana) You resist mana-based attacks</p>';
 	}
 
 	if (v('CONVEYANCE') >= 30000) {
@@ -659,10 +986,10 @@ function summarize(t) {
 	s = 'NATURE';
 	if (v(s) >= 30000) {
 		my_t += '<p>(Nature) You regenerate health faster</p>';
-		my_t += '<p>(Nature) You can pass through trees</p>';
+		my_t += '<p>(Nature) You can pass through trees and water easily</p>';
 	}
 	if (v(s) >= 40000) {
-		my_t += '<p>(Nature) You can swim</p>';
+		my_t += '<p>(Nature) You resist poison</p>';
 	}
 
 	s = 'MIND';
@@ -670,9 +997,9 @@ function summarize(t) {
 		my_t += '<p>(Mind) You feel strong against confusion and hallucinations</p>';
 	}
 	if (v(s) >= 40000) {
-		my_t += '<p>(Mind) You have a hold to your sanity</p>';
+		my_t += '<p>(Mind) You have a hold on your sanity</p>';
 	} else if (v(s) >= 50000) {
-		my_t += '<p>(Mind) You have a stronger hold to your sanity</p>';
+		my_t += '<p>(Mind) You have a stronger hold on your sanity</p>';
 	}
 
 	if (v('TEMPORAL') >= 50000) {
@@ -680,9 +1007,6 @@ function summarize(t) {
 	}
 
 	s = 'UDUN';
-	if (v(s) >= 30000) {
-		my_t += '<p>(Udun) You resist teleportation attacks</p>';
-	}
 	if (v(s) >= 40000) {
 		my_t += '<p>(Udun) You have a strong hold on your life force</p>';
 	}
@@ -720,15 +1044,57 @@ function summarize(t) {
 	}
 	if (v(s) >= 50000) {
 		my_t += '<p>(H. Curing) You resist black breath and hallucinations</p>';
+		my_t += '<p>(H. Curing) You do extra damage to undeads</p>';
+		my_t += '<p>(H. Curing) You lose less experience on death</p>';
 	}
 
 	s = 'HSUPPORT';
 	if (v(s) >= 40000) {
-		my_t += '<p>(H. Support) You do not require food</p>';
-	} 
-	if (v(s) >= 50000) {
 		my_t += '<p>(H. Support) You are immune to ancient curses</p>';
 	}
+	if (v(s) >= 50000) {
+		my_t += '<p>(H. Support) You do not require food</p>';
+	}
+
+	s = 'OSHADOW';
+	if (v(s) >= 50000) {
+		my_t += '<p>(Shadow) You have a +4 bonus to your Stealth</p>';
+	} else if (v(s) >= 45000) {
+		my_t += '<p>(Shadow) You have a +3 bonus to your Stealth</p>';
+	} else if (v(s) >= 40000) {
+		my_t += '<p>(Shadow) You have a +2 bonus to your Stealth</p>';
+	} else if (v(s) >= 35000) {
+		my_t += '<p>(Shadow) You have a +1 bonus to your Stealth</p>';
+	}
+	if (v(s) >= 30000) {
+		my_t += '<p>(Shadow) You resist darkness</p>';
+	}
+	 
+	s = 'OSPIRIT';
+	if (v(s) >= 30000) {
+		my_t += '<p>(Spirit) You have a strong hold on your life force</p>';
+	}
+	if (v(s) >= 40000) {
+		my_t += '<p>(Spirit) You do extra damage to undeads</p>';
+	}
+	if (v(s) >= 50000) {
+		my_t += '<p>(Spirit) You lose less experience on death</p>';
+	}
+	 
+	s = 'OHERETICISM';
+	if (v(s) >= 30000) {
+		my_t += '<p>(Hereticism) You resist fire</p>';
+	}
+	if (v(s) >= 45000) {
+		my_t += '<p>(Hereticism) You resist chaos</p>';
+	}
+	 
+	if (v('OHERETICISM') >= 45000 && v('TRAUMATURGY') >= 45000) {
+		my_t += '<p>(Hereticism, Trauma) You have a stronger hold on your sanity</p>';
+	} else if (v('OHERETICISM') >= 30000 && v('TRAUMATURGY') >= 30000) {
+		my_t += '<p>(Hereticism, Trauma) You have a hold on your sanity</p>';
+	}
+
 
 	s = 'SWORD';
 	if (v(s) >= 50000) {
@@ -758,13 +1124,13 @@ function summarize(t) {
 		my_t += '<p>(Polearm) You have an extra blow per round</p>';
 	}
 
-	if (v('ARCHERY') >= 50000) {
-		my_t += '<p>(Archery) Your shots gain an extra power per shot</p>';
+	if (v('ARCHERY') >= 20000) {
+		my_t += '<p>(Archery) The quality of your handmade ammunition has improved</p>';
 	}
 
 	s = 'BOW';
 	if (v(s) >= 50000) {
-		my_t += '<p>(Bow) You have four extra shots per round</p>';
+		my_t += '<p>(Bow) You have four extra shots per round, with extra power</p>';
 	} else if (v(s) >= 37500) {
 		my_t += '<p>(Bow) You have three extra shots per round</p>'; 
 	} else if (v(s) >= 25000) {
@@ -775,7 +1141,7 @@ function summarize(t) {
 
 	s = 'SLING';
 	if (v(s) >= 50000) {
-		my_t += '<p>(Sling) You have five extra shots per round</p>';
+		my_t += '<p>(Sling) You have five extra shots per round, with extra power</p>';
 	} else if (v(s) >= 40000) {
 		my_t += '<p>(Sling) You have four extra shots per round</p>'; 
 	} else if (v(s) >= 30000) {
@@ -788,21 +1154,43 @@ function summarize(t) {
 
 	s = 'XBOW';
 	if (v(s) >= 50000) {
-		my_t += '<p>(Crossbow) You have two extra shots with double the power per round</p>';
+		my_t += '<p>(Crossbow) You have two extra shots per round, with thrice the extra power</p>';
+	} else if (v(s) >= 37500) {
+		my_t += '<p>(Crossbow) You have a extra shot per round, with twice the extra power</p>'; 
 	} else if (v(s) >= 25000) {
-		my_t += '<p>(Crossbow) You have an extra shot with extra power per round</p>'; 
+		my_t += '<p>(Crossbow) You have an extra shot per round, with extra power</p>';
+	} else if (v(s) >= 12500) {
+		my_t += '<p>(Crossbow) Your shots have extra power</p>';
 	}
 	
 	s = 'BOOMERANG';
 	if (v(s) >= 50000) {
-		my_t += '<p>(Boomerang) You have three extra shots per round</p>';
+		my_t += '<p>(Boomerang) You have three extra throws per round</p>';
 	} else if (v(s) >= 33300) {
-		my_t += '<p>(Boomerang) You have two extra shots per round</p>'; 
+		my_t += '<p>(Boomerang) You have two extra throws per round</p>'; 
 	} else if (v(s) >= 16600) {
-		my_t += '<p>(Boomerang) You have an extra shot per round</p>'; 
+		my_t += '<p>(Boomerang) You have an extra throw per round</p>'; 
 	}
-
-
+	 
+	s = 'NECROMANCY';
+	if (v(s) >= 50000) {
+		my_t += '<p>(Necromancy) You are immune to life-draining effects</p>';
+	}
+	 
+	s = 'AURA_FEAR';
+	if (v(s) >= 20000) {
+		my_t += '<p>(Aura of Fear) You resist fear</p>';
+	}
+	 
+	s = 'AURA_SHIVER';
+	if (v(s) >= 30000) {
+		my_t += '<p>(Shivering Aura) Your aura brands your melee attacks with cold</p>';
+	}
+	 
+	s = 'AURA_DEATH';
+	if (v(s) >= 40000) {
+		my_t += '<p>(Aura of Death) Your aura alternately brands your melee attacks with fire and cold</p>';
+	}
 
 	$('#summary').html(my_t);
 }
@@ -1143,7 +1531,7 @@ function get_race_advert(prace) {
     'Bonus on Blunt-Mastery, Health and Swimming. Penalty on Critical-Strike.'+
 	'Large penalties on Archery, Magic and Sorcery.</p>';
 
-	if (prace == 'RACE_DUNADAN') s+='<h4>Dunadain</h4><p> '+
+	if (prace == 'RACE_DUNADAN') s+='<h4>Dunadan</h4><p> '+
     'Constitution is sustained. Hardy and surpassing human abilities in every<br/>'+
     'field, especially constitution. Levels are very hard to gain.<br/>'+
     'Get a bonus on Combat, Archery and Interception and a small bonus to Magic.</p>';
@@ -1199,13 +1587,13 @@ function get_race_advert(prace) {
     '<p>Red Lineage: Fire Breath, immune (25), susceptible to cold<\p>'+
     '<p>Black Lineage: Acid Breath, immune (25), <\p>'+
     '<p>Green Lineage: Poison Breath, immune (25), <\p>'+
-    '<p>Multi-hued Lineage: Random Breath, restist lightning (5), frost (10), fire (15), acid (20), poison (25)<\p>'+
-    '<p>Bronze Lineage: Confusion Breath, restist confusion (5), paralysis (10), reflection (20)<\p>'+
-    '<p>Silver Lineage: Inertia Breath, restist  cold (5), poison (10), reflection (20)<\p>'+
-    '<p>Golden Lineage: Sound Breath, restist  acid (5), sound (10), reflection (20)<\p>'+
-    '<p>Law Lineage: Shards Breath, restist  shards (5), sound (15)<\p>'+
-    '<p>Chaos Lineage: Chaos Breath, restist  confusion (5), chaos (15), disenchantment (20)<\p>'+
-    '<p>Balance Lineage: Disenchantment Breath, restist disenchantment (10), sound (20)<\p>';
+    '<p>Multi-hued Lineage: Random Breath, resists lightning (5), frost (10), fire (15), acid (20), poison (25)<\p>'+
+    '<p>Bronze Lineage: Confusion Breath, resists confusion (5), paralysis (10), reflection (20)<\p>'+
+    '<p>Silver Lineage: Inertia Breath, resists  cold (5), poison (10), reflection (20)<\p>'+
+    '<p>Golden Lineage: Sound Breath, resists  acid (5), sound (10), reflection (20)<\p>'+
+    '<p>Law Lineage: Shards Breath, resists  shards (5), sound (15)<\p>'+
+    '<p>Chaos Lineage: Chaos Breath, resists  confusion (5), chaos (15), disenchantment (20)<\p>'+
+    '<p>Balance Lineage: Disenchantment Breath, resists disenchantment (10), sound (20)<\p>';
 
 	if (prace == 'RACE_KOBOLD') s+='<h4>Kobold</h4><p> '+
     'Resist poison intrinsically. Be able to take most roles. '+
@@ -1271,7 +1659,7 @@ function get_race_advert(prace) {
     'ESP good creatures and demons. Be able to train in the Astral school.<br/>'+
     'Get the best shop prices but gain experience extremely slowly. Rarely feel the need to feed, and never '+
 	'after initiation. Get boosted skills on initiation. Get a bonus on Sneakiness and Stealth.</p>' + 
-    '<p>>'+
+    '<p>'+
     '    Resist fire and darkness but be susceptible to good-based attacks.<br/>'+
     '    Enjoy +2 bonus HP for each level above 20.<br/>'+
     '    At level 50: become resistant to poison, immune to fire, and<br/>'+
@@ -1454,7 +1842,7 @@ function get_class_advert(pclass)
 		'Do Holy Curing, if not as well as priests.<br/>'+
 		'Do some decent damage with Holy Light!<br/>'+
 		'Write macros to support and heal your party!<br/>'+
-        'Max a weapon or martials arts skill.<br/>'+
+        'Max a weapon skill.<br/>'+
         'Create a macro for Sprint and Taunt when you learn them!<\p>';
     }
 	
@@ -1511,7 +1899,7 @@ function get_class_advert(pclass)
 		'Move straight even in confusing forms.<br/>'+
         'Learn elemental (E) and semi-elemental (X) forms especially<br/>'+
 		'quickly.<br/>'+
-        'Tollerate weaker combat abilities than rangers or paladins but train melee anyway.<br/>'+
+        'Tolerate weaker combat abilities than rangers or paladins but train melee anyway.<br/>'+
 		'See invisible at level 20.<br/>'+
 		'Look out for polymorph rings. Make them for other mimics and shaman. Ask others to <br/>'+
 		'make them for you.<\p>';
@@ -1549,6 +1937,47 @@ function get_class_advert(pclass)
         'Max weapon or martials arts skills.<\p>';
 	}
 
+	if (pclass=='CLASS_DEATHKNIGHT') {
+		s+='<h4>Death Knight</h4><p>'+
+			'Play a combination of warrior and occultist. Melee weapons and dark-magic support.<br/>'+
+			'Strength and wisdom. Constitution and dexterity help.<br/>'+
+			'Be good with shields if not so good at missile weapons. Never mind<br/>'+
+			'stealth, perception, and searching. Better than plain warriors with<br/>'+
+			'magical devices. Enjoy an outstanding saving throw.<br/>'+
+			'Train in blood magic and shadow spells to embrace the darkness and use<br/>'+
+			'the life force of your opponents against them.<br/>'+
+			'Forget about holy schools; unholy forces animate your form.<br/>'+
+			'Write macros to support your party by crippling enemies with status effects!<br/>'+
+			'Max a weapon skill.<br/>'+
+			'Create a macro for Sprint and Taunt when you learn them!<\p>';
+		}
+	if (pclass=='CLASS_HELLKNIGHT') {
+		s+='<h4>Hell Knight</h4><p>'+
+			'Play a combination of warrior and heretic. Melee weapons and infernal support.<br/>'+
+			'Strength and wisdom. Constitution and dexterity help.<br/>'+
+			'Be good with shields if not so good at missile weapons. Never mind<br/>'+
+			'stealth, perception, and searching. Better than plain warriors with<br/>'+
+			'magical devices. Enjoy an outstanding saving throw.<br/>'+
+			'Channel heretical and blood magics to embrace chaos and let<br/>'+
+			'the wrath of hell itself consume your foes while you feed on their suffering.<br/>'+
+			'Forget about holy schools; in choosing corruption you have rejected them.<br/>'+
+			'Max a weapon skill.<br/>'+
+			'Create a macro for Sprint and Taunt when you learn them!<\p>';
+		}
+	if (pclass=='CLASS_CPRIEST') {
+		s+='<h4>Priest</h4><p> '+
+			'Use dark magics and wicked heresies, plus some Divination and Conveyance.<br/>'+
+			'Make proper use of swords or martial arts.<br/>'+
+			'Learn many spells. Be wise and get mana and spell<br/>'+
+			'success. Show off with magical devices. Saving throws that get you out of trouble.<br/>'+ 
+			'Weak in the beginning but decent fighters later on.<br/>'+
+			'Forget training in any weapon but swords.<br/>'+
+			'Get hit with a big penalty for using blessed weapons.<br/>'+
+			'Sense curses on items and watch that ability grow with each level.<br/>'+
+			'Bonus on Conveyance. Show your maturity as a player by playing a challenging class.<br/>'+
+			'Support your team with debuffs in the early game, and beyond!<\p>';
+		}
+
     s += '<p>Stat changes from this class:<br/>';
 
     if (pclass=='CLASS_WARRIOR')
@@ -1559,15 +1988,11 @@ function get_class_advert(pclass)
     {
    			s+='STR:-5 INT:+3 WIS:-0 DEX:+1 CON:-2 CHR:+1 HP:+0 EXP%: +35%</p>';
     }
-    if (pclass=='CLASS_PRIEST')
-    {
-   			s+='STR:-1 INT:-3 WIS:+3 DEX:-1 CON:0 CHR:+2 HP:+0 EXP%: +20%</p>';
-    }
     if (pclass=='CLASS_ROGUE')
     {
    			s+='STR:+2 INT:+1 WIS:-2 DEX:+3 CON:+1 CHR:-1 HP:+5 EXP%: +15%</p>';
     }
-    if (pclass=='CLASS_PRIEST')
+    if (pclass=='CLASS_PRIEST' || pclass=='CLASS_CPRIEST')
     {
    			s+='STR:+1 INT:0 WIS:0 DEX:+1 CON:+1 CHR:-4 HP:+6 EXP%: +30%</p>';
     }
@@ -1575,7 +2000,7 @@ function get_class_advert(pclass)
     {
    			s+='STR:+1 INT:0 WIS:+2 DEX:+3 CON:+1 CHR:-1 HP:+5 EXP%: +10%</p>';
     }
-    if (pclass=='CLASS_PALADIN')
+    if (pclass=='CLASS_PALADIN' || pclass=='CLASS_DEATHKNIGHT' || pclass=='CLASS_DEATHKNIGHT')
     {
    			s+='STR:+3 INT:-3 WIS:+1 DEX:0 CON:+2 CHR:+2 HP:+8 EXP%: +30%</p>';
     }
@@ -1630,10 +2055,7 @@ function get_spell_level(sspell) {
 }
 function spell_power(sspell) {
 	var school=SPELL[sspell][1];
-	if (school != 'HOffense' &&
-	    school != 'HDefense' &&
-	    school != 'HSupport' &&
-	    school != 'HCuring' &&
+	if (
 	    school != 'Mana' &&
 	    school != 'Fire' &&
 	    school != 'Water' &&
@@ -1651,6 +2073,34 @@ function spell_power(sspell) {
 }
 
 function get_spell_advert(sspell) {
+	var school=SPELL[sspell][1];
+	if (school.split("-").length==2) {
+		var school1=school.split('-')[0];
+		var school2=school.split('-')[1]
+		var level1=Math.floor(v(school1)/1000);
+		var level2=Math.floor(v(school2)/1000);
+		var level=Math.floor((level1+level2)/2)-1;
+		if (level<=0) return '';
+		return sspell+' ('+(level)+') <br/>';
+	}
+	if (school.split("-").length==3) {
+		var school1=school.split('-')[0];
+		var school2=school.split('-')[1]
+		var school3=school.split('-')[2]
+		var level1=Math.floor(v(school1)/1000);
+		var level2=Math.floor(v(school2)/1000);
+		var level3=Math.floor(v(school3)/1000);
+		var level=Math.floor((level1+level2+level3)/3)-1;
+		if (level<=0) return '';
+		return sspell+' ('+(level)+') <br/>';
+	}
+	var school=SPELL[sspell][1];
+	var level=Math.floor(get_spell_level(sspell)/1000);
+	level=Math.floor(1+level-SPELL[sspell][0]);
+	if (level <= 0 || isNaN(level)) return '';
+	return sspell+' ('+ Math.floor(level * spell_power(sspell)) +') <br/>';
+}
+function old_get_spell_advert(sspell) {
 	if (sspell=='TeleKenisis II') return get_telekenesisII_advert(sspell);
 	if (sspell=='Holy Light') return get_holyLight_advert(sspell);   
 	var school=SPELL[sspell][1];
