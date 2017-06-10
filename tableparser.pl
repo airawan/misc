@@ -168,6 +168,8 @@ SKILLS['SKILL_R_NETH']= 99;
 SKILLS['SKILL_R_CHAO']= 100;
 SKILLS['SKILL_R_MANA']= 101;
 
+SKILLS['SKILL_OHERETICISM']= 102;
+
 FRIENDLY['SKILL_CRITS'] = [ 'SKILL_SWORD', 5 ];
 FRIENDLY['SKILL_SWORD'] = [ 'SKILL_MASTERY', 15, 'SKILL_COMBAT', 20 ];
 FRIENDLY['SKILL_AXE'] = [ 'SKILL_MASTERY', 15, 'SKILL_COMBAT', 20 ];
@@ -646,7 +648,7 @@ while(<>) {
 			}
 #TODO: SPECIAL DIVINE SECTION
 		} elsif (/player_class/) {
-print <<EOM; #special divine section
+print <<EOM; #special divine section; see: xtra2.c. This is getting complicated, huh?
 
 	PRACE['RACE_DIVINE1']['SKILL_DIVINATION'] = [0, 0, 170]; 
 	PRACE['RACE_DIVINE1']['SKILL_SWORD'] = [0, 0, 130];
@@ -663,6 +665,7 @@ print <<EOM; #special divine section
 	PRACE['RACE_DIVINE2']['SKILL_UDUN'] = [0, 0, 200];
 	PRACE['RACE_DIVINE2']['SKILL_MARTIAL_ARTS'] = [0, 0, 130];
 	PRACE['RACE_DIVINE2']['SKILL_AXE'] = [0, 0, 130]; 
+
 EOM
 			$current_race = "";
 			print "}\nfunction initialize_pclass() {\n";
@@ -703,7 +706,38 @@ EOM
 	}
 }
 print <<'EOM';
-}
+
+	//These go last because they have priority (straight up overwrite mod vs increase/decrease.
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_HOFFENSE'] = [ 0, 0, -1];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_HCURING'] = [ 0, 0, -1];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_HDEFENSE'] = [ 0, 0, -1];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_HSUPPORT'] = [ 0, 0, -1];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_OHERETICISM'] = [ 0, 1050 * 7 / 10 * 21 / 10, 0];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_BLUNT'] = [ 0, 0, -1];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_AXE'] = [ 0, 700 * 13 / 10, 0]; 
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_TRAUMATURGY'] = [ 0, (1500 * 7) / 10 * 3      , 0];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_NECROMANCY'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_AURA_FEAR'] = [ 0,   (1400 * 7) / 10 * 3    , 0];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_AURA_SHIVER'] = [ 0, (1400 * 7) / 10 * 3      , 0];
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_AURA_DEATH'] = [ 0,  (1300 * 7) / 10 * 3     , 0]; 
+
+	PCLASS['CLASS_CPRIEST']['SKILL_HOFFENSE'] = [ 0, 0, -1];
+	PCLASS['CLASS_CPRIEST']['SKILL_HCURING'] = [ 0, 0, -1];
+	PCLASS['CLASS_CPRIEST']['SKILL_HDEFENSE'] = [ 0, 0, -1];
+	PCLASS['CLASS_CPRIEST']['SKILL_HSUPPORT'] = [ 0, 0, -1]; 
+	PCLASS['CLASS_CPRIEST']['SKILL_OHERETICISM'] = [ 0, 1050 * 7 / 10 * 21 / 10, 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_BLUNT'] = [ 0, 0, -1];
+	PCLASS['CLASS_CPRIEST']['SKILL_SWORD'] = [ 0, 600 * 13 / 10, 0]; 
+	PCLASS['CLASS_CPRIEST']['SKILL_TRAUMATURGY'] = [ 0, (1400 * 7) / 10 * 3      , 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_NECROMANCY'] = [ 0,  (1400 * 7) / 10 * 3     , 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_AURA_FEAR'] = [ 0,   (1500 * 7) / 10 * 3    , 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_AURA_SHIVER'] = [ 0, (1300 * 7) / 10 * 3      , 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_AURA_DEATH'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
+	PCLASS['CLASS_CPRIEST']['SKILL_AURA_DEATH'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
+
+	PCLASS['CLASS_HELLKNIGHT']['SKILL_OSHADOW'] = [ 0, 0, 210 ];
+	PCLASS['CLASS_CPRIEST']['SKILL_OSHADOW'] = [ 0, 0, 210 ];
+} //end off initialize_pclass
 
 
 var prev_prace = -1; var prev_pclass = -1;
@@ -766,6 +800,8 @@ function refresh(force) {
 			TREE_BASE[skill] = 0;
 			TREE_MOD[skill] = 0;
 
+			$('#'+skill).css('color', '#cca');
+/* //Let's not mess with these
 			$('#'+skill).css('background', 'darkgrey');
 			$('#'+skill).css('display', 'none');
 			if (skill == "SKILL_ARCHERY") {
@@ -775,6 +811,7 @@ function refresh(force) {
 					$('#'+skill).css('display', 'inline');
 				}
 			}
+*/
 		} else { 
 			if (($('#race').val() == 'RACE_DIVINE1' || $('#race').val() == 'RACE_DIVINE2') && race_x == 2.10) race_x *= 0.7;
 
@@ -801,8 +838,11 @@ function refresh(force) {
 				$('#'+skill+'_VAL').css('background', 'white'); 
 			}
 
+			$('#'+skill).css('color', 'black');
+/*
 			$('#'+skill).css('background', 'white'); 
 			$('#'+skill).css('display', 'inline');
+*/
 		}
 		TREE_SPENT[skill] = 0;
 
@@ -1994,13 +2034,13 @@ function get_class_advert(pclass)
     }
     if (pclass=='CLASS_PRIEST' || pclass=='CLASS_CPRIEST')
     {
-   			s+='STR:+1 INT:0 WIS:0 DEX:+1 CON:+1 CHR:-4 HP:+6 EXP%: +30%</p>';
+			s+='STR:-1 INT:-3 WIS:+3 DEX:-1 CON:0 CHR:+2 HP:+0 EXP%: +20%</p>';
     }
     if (pclass=='CLASS_MIMIC')
     {
-   			s+='STR:+1 INT:0 WIS:+2 DEX:+3 CON:+1 CHR:-1 HP:+5 EXP%: +10%</p>';
+			s+='STR:+1 INT:0 WIS:0 DEX:+1 CON:+1 CHR:-4 HP:+6 EXP%: +30%</p>';
     }
-    if (pclass=='CLASS_PALADIN' || pclass=='CLASS_DEATHKNIGHT' || pclass=='CLASS_DEATHKNIGHT')
+    if (pclass=='CLASS_PALADIN' || pclass=='CLASS_DEATHKNIGHT' || pclass=='CLASS_HELLKNIGHT')
     {
    			s+='STR:+3 INT:-3 WIS:+1 DEX:0 CON:+2 CHR:+2 HP:+8 EXP%: +30%</p>';
     }
