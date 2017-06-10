@@ -736,8 +736,8 @@ print <<'EOM';
 	PCLASS['CLASS_CPRIEST']['SKILL_AURA_DEATH'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
 	PCLASS['CLASS_CPRIEST']['SKILL_AURA_DEATH'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
 
-	PCLASS['CLASS_HELLKNIGHT']['SKILL_OSHADOW'] = [ 0, 0, 210 ];
-	PCLASS['CLASS_CPRIEST']['SKILL_OSHADOW'] = [ 0, 0, 210 ];
+//	PCLASS['CLASS_HELLKNIGHT']['SKILL_OSHADOW'][2] = 210; //overwriting above values
+//	PCLASS['CLASS_CPRIEST']['SKILL_OSHADOW'][2] = 210; //overwriting above values
 } //end off initialize_pclass
 
 
