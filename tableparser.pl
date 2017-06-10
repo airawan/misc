@@ -714,7 +714,8 @@ print <<'EOM';
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_HSUPPORT'] = [ 0, 0, -1];
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_OHERETICISM'] = [ 0, 1050 * 7 / 10 * 21 / 10, 0];
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_BLUNT'] = [ 0, 0, -1];
-	PCLASS['CLASS_HELLKNIGHT']['SKILL_AXE'] = [ 0, 700 * 13 / 10, 0]; 
+//Will be done by the parent (race)
+//	PCLASS['CLASS_HELLKNIGHT']['SKILL_AXE'] = [ 0, 700 * 13 / 10, 0]; 
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_TRAUMATURGY'] = [ 0, (1500 * 7) / 10 * 3      , 0];
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_NECROMANCY'] = [ 0,  (1300 * 7) / 10 * 3     , 0];
 	PCLASS['CLASS_HELLKNIGHT']['SKILL_AURA_FEAR'] = [ 0,   (1400 * 7) / 10 * 3    , 0];
@@ -1644,7 +1645,7 @@ function get_race_advert(prace) {
     'Get a bonus on Swimming and Trapping and a slight bonus on<br/>'+
     'Sneakiness.</p>';
 
-	if (prace == 'RACE_DARK_ELF') s+='<p>(dark-elf) '+
+	if (prace == 'RACE_DARK_ELF') s+='<h4>Dark-elf</h4><p>'+
     'Be a good fighter or sorceror, or a decent priest.<br/>'+
     'Intrinsically resist darkness, but be susceptible to light.<br/>'+
     'At level 20, learn to see the invisible.<br/>'+
